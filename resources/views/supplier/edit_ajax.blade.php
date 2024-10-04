@@ -41,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label>supplier Alamat</label>
-                        <input value="{{ $supplier->supplier_kode }}" type="text" name="supplier_alamat" id="name"
+                        <input value="{{ $supplier->supplier_alamat }}" type="text" name="supplier_alamat" id="name"
                             class="form-control" required>
                         <small id="error-supplier_alamat" class="error-text form-text text-danger"></small>
                     </div>
