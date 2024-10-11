@@ -151,7 +151,7 @@ Route::middleware(['auth'])->group(function(){
 //     Route::delete('/{id}', [UserController::class, 'destroy']);                 //menghapus data user
 // });
 
-//    // Group route untuk level
+   // Group route untuk level
 // Route::group(['prefix' => 'level'], function(){
 //     Route::get('/', [LevelController::class, 'index']);                             //menampilkan laman awal level
 //     Route::post('/list', [LevelController::class, 'list']);                         //menampilkan data level dalam bentuk json untuk datatables
