@@ -385,5 +385,27 @@ class BarangController extends Controller{
         $writer->save('php://output');
         exit;
         } // End function export_excel
+
+    public function export_pdf(){
+        // Ambil data barang
+        $barang = BarangModel::select('kategori_id', 'barang_kode', 'barang_nama', 'harga_beli', 'harga_jual')
+            ->orderBy('kategori_id')
+            ->orderBy('barang_kode')
+            ->with('kategori')
+            ->get();
+
+        // Load view untuk PDF, gunakan Barryvdh\DomPDF\Facade\Pdf
+        $pdf = Pdf::loadView('barang.export_pdf', ['barang' => $barang]);
+
+        // Set ukuran kertas dan orientasi (A4, portrait)
+        $pdf->setPaper('a4', 'portrait');
+
+        // Jika ada gambar dari URL, set isRemoteEnabled ke true
+        $pdf->setOption("isRemoteEnabled", true);
+
+        // Render dan stream PDF
+        return $pdf->stream('Data Barang ' . date('Y-m-d H:i:s') . '.pdf');
+    }
+
 }
 
