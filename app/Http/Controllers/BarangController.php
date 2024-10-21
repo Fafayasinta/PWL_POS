@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Validator;
 use PhpOffice\PhpSpreadsheet\IOFactory; // import excel
-use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\DomPDF\Facade\Pdf; // import pdf
 
 class BarangController extends Controller{
     public function index()
@@ -247,6 +247,13 @@ class BarangController extends Controller{
             return redirect('/');
         }
     }
+
+    public function show_ajax(string $id){
+        $barang = BarangModel::find($id);
+
+        return view('barang.show_ajax', ['barang' => $barang]);
+    }
+
     public function import() 
     { 
         return view('barang.import');
