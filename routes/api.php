@@ -20,6 +20,8 @@ use App\Http\Controllers\Api\UserController;
 */
 
 Route::post('/register', App\Http\Controllers\Api\RegisterController::class)->name('register');
+// register dengan foto
+Route::post('/register1', App\Http\Controllers\Api\RegisterController::class)->name('register');
 Route::post('/login', App\Http\Controllers\Api\LoginController::class)->name('login');
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
